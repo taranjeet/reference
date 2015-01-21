@@ -9,3 +9,9 @@ $ createdb -U $USER --locale=en_US.utf-8 -E utf-8 -O $USER newdb -T template0
 
 ```
 [Link to above](http://killtheyak.com/use-postgresql-with-django-flask/)
+
+```shell
+
+$ dropdb development_database_name
+$ createdb development_database_name
+```
