@@ -57,9 +57,25 @@ in the main project urls.py, do
 
 ```python
 url(r'^polls/',include('polls.urls'))
-
+```
 Also you need to specify the location of template folder in the settings.py file as
 
 ```python
 TEMPLATE_DIRS = [(os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'project/templates'))]
 ```
+
+For rendering static files use collectstatic
+```shell
+$ python manage.py collectstatic
+```
+Reference for Template builins [link](https://docs.djangoproject.com/en/1.7/ref/templates/builtins/)
+
+and copy the following in settings.py
+*PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+*STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+*PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+*STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
+
+Reference for Collectstatic [link](http://blog.doismellburning.co.uk/2012/06/25/django-and-static-files/)
