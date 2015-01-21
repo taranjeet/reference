@@ -14,7 +14,7 @@ PreRequistites:
 $python -c "import django; print(django.get_version())"
 ```
 
-If django is installe, you should see the version of your installation. If it isnot, you will get an erro telling No module named django.
+If django is installed, you should see the version of your installation. If it isnot, you will get an erro telling No module named django.
 
 Now edit the database settings in settings.py file
 
@@ -57,3 +57,9 @@ in the main project urls.py, do
 
 ```python
 url(r'^polls/',include('polls.urls'))
+
+Also you need to specify the location of template folder in the settings.py file as
+
+```python
+TEMPLATE_DIRS = [(os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'project/templates'))]
+```
