@@ -71,10 +71,10 @@ $ python manage.py collectstatic
 Reference for Template builins [link](https://docs.djangoproject.com/en/1.7/ref/templates/builtins/)
 
 and copy the following in settings.py
-*PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
-*STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-*PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-*STATICFILES_FINDERS = (
+* PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+* STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+* PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+* STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',)
 
