@@ -31,8 +31,73 @@ In this post I will be talking about how to host a Django based app on OpenShift
 	to specify repo.
 
 	```shell
+
 	rhc app create <nameofApp> python-2.6 	#creating app
 	cd nameofApp
+	rhc cartridge add postgresql-9.2 -a nameofApp	#attaching postgresql cartridge
 	```
+	
+	Now ssh into your app to create postgis extension
+	```shell
+	#create postgis extension
+	rhc ssh nameofApp
+	psql
+	CREATE EXTENSION postgis;
+	\q
+	exit
+	#till here you have created a database with postgis extension
+	```
+	Now you must be in your nameofApp directory where a folder named .openshift 
+	will be there. Now lets add a remote and pull the code from there.
+
+	```shell
+	git remote add newremote https://github.com/staranjeet/newgeolocation.git
+	git fetch newremote
+	```
+
+	Its time to edit some files now, 
+	```shell
+	mkdir wsgi
+	cd wsgi
+	touch application
+	vim application
+	```
+	```python
+	#!/usr/bin/env python
+
+	import os
+	import sys
+
+	sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR']))
+
+	os.environ['DJANGO_SETTINGS_MODULE'] = 'geodjtj.settings'
+
+	virtenv = os.environ['OPENSHIFT_HOMEDIR'] + 'python-2.6/virtenv/'
+
+	# env shows this as the egg cache:
+	# PYTHON_EGG_CACHE=/var/lib/openshift/ecad07d3b3a7455085c8644d2f04e6bc/python-2.6/.python-eggs/
+	os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.6/site-packages')
+
+	virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+	try:
+	    execfile(virtualenv, dict(__file__=virtualenv))
+	except IOError:
+	    pass
+	#
+	# IMPORTANT: Put any additional includes below this line.  If placed above this
+	# line, it's possible required libraries won't be in your searchable path
+	# 
+
+	from django.core.wsgi import get_wsgi_application
+	application = get_wsgi_application()
+	```
+
+	This wsgi file is necesarry because it will tell Openshift which app to serve. If this
+	is not there, then your app will be hosted but you will see a default welcome to Openshift
+	page.
+
+
+
+
 	
 
