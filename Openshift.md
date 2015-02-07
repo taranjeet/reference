@@ -51,11 +51,12 @@ In this post I will be talking about how to host a Django based app on OpenShift
 	will be there. Now lets add a remote and pull the code from there.
 
 	```shell
-	git remote add newremote https://github.com/staranjeet/newgeolocation.git
+	git remote add newremote https://github.com/staranjeet/geoloc23.git
 	git fetch newremote
 	```
 
-	Its time to edit some files now, 
+	Its time to edit some files now.
+
 	```shell
 	mkdir wsgi
 	cd wsgi
@@ -95,6 +96,70 @@ In this post I will be talking about how to host a Django based app on OpenShift
 	This wsgi file is necesarry because it will tell Openshift which app to serve. If this
 	is not there, then your app will be hosted but you will see a default welcome to Openshift
 	page.
+
+	Now edit setup.py
+	```python
+	from setuptools import setup
+
+	setup(name='nameofApp',
+      version='1.0',
+      description='OpenShift App',
+      author='Taranjeet',
+      author_email='reachtotj@gmail.com',
+      url='https://github.com/staranjeet/geoloc23',
+      install_requires=['Django>=1.3', 'psycopg2'],
+     )
+     ```
+
+     Next you need to edit settings.py
+     ```python
+     #database
+     if 'OPENSHIFT_POSTGRESQL_DB_URL' in os.environ:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.environ['OPENSHIFT_APP_NAME'],
+        'USER': 'admine3cgl3b',
+        'PASSWORD': "FgZKC6e7QAEZ",
+        'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
+        'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
+    	}
+	}
+	else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'dbname',
+        'USER':'username',
+        'PASSWORD':'********',
+    }
+	}
+	#serve static files
+	if 'OPENSHIFT_REPO_DIR' in os.environ:
+    	STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
+	else:
+    	STATIC_ROOT = 'staticfiles'
+     ```
+
+     Thats all, Now commit the changes and push the code
+     ```shell
+     git add -A
+     git commit -m "code to openshift deployed"
+     git push
+     ```
+
+     Note that in the link mentioned, they are using deploy script to perform **syncdb** 
+     and **collectstatic** but you can do it by using ssh as
+     ```shell
+     rhc ssh nameofApp
+     cd app-root
+     cd repo
+     python manange.py syncdb
+     python manage.py collectstatic
+     ```
+
+     Hope it helps!
+
 
 
 
