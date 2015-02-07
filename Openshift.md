@@ -7,7 +7,7 @@ In this post I will be talking about how to host a Django based app on OpenShift
   nice support and its really easy if you are using PostgreSql or Sql 
   as a database, but when you need to perform geospatial queries like
   **all the places within 5 km of range**, then Heroku loses. You can
-  install Geodjango and its associated libraries [SO](http://stackoverflow.com/questions/28350422/installing-geodjango-on-heroku/28353574) but you **cannot create POSTGIS extension**
+  install Geodjango and its associated libraries [SO link](http://stackoverflow.com/questions/28350422/installing-geodjango-on-heroku/28353574) but you **cannot create POSTGIS extension**
   because one is not given **SuperUser access** on **Hobby-Dev** plan.
 
   So after struggling the whole day, next day in the morning I looked for
@@ -26,3 +26,13 @@ In this post I will be talking about how to host a Django based app on OpenShift
 	```shell
 	sudo apt-get install rubygems-integration
 	```
+	* After the installation is complete, follow this [link](http://appsembler.com/blog/django-deployment-using-openshift/). I will explain here though. Unlike Heroku, where you can
+	directly commit code from local to heroku server, in openshift you need 
+	to specify repo.
+
+	```shell
+	rhc app create <nameofApp> python-2.6 	#creating app
+	cd nameofApp
+	```
+	
+
