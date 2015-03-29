@@ -1,4 +1,4 @@
-In this tutorial, I will write about how to use **Scrapy** to crawl websites. Scrapy internally uses **lxlm**.
+In this tutorial, I will write about how to use **Scrapy** to crawl websites. Scrapy internally uses **lxml**.
 
 I am assuming that scrapy is installed on the system.
 
