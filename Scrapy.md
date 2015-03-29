@@ -65,3 +65,7 @@ Now start the spider and save the result in a json file
 $ scrapy crawl dmoz -o items.json
 ```
 
+**Note:** Scrapy everytimes appends the result to the previous existing json file. So its better to remove that file first.
+```shell
+$ rm items.json; scrapy crawl -o items.json
+```
