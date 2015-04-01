@@ -1,30 +1,18 @@
-**DIRECTORY OPERATIONS**
-1.ls
-use:To show the list of current files and directory
-**Advance**
-ls options:
-	-a Show all (including hidden)
-	-R Recursive list
-	-r Reverse order
-	-t Sort by last modified
-	-S Sort by file size
-	-l Long listing format
-	-1 One file per line
-	-m Comma-separated output
-	-Q Quoted output
-note: dir is also working in linux to show the files and directory terminal but it doesn't show the permission on files or folders 
+#**DIRECTORY OPERATIONS**
+	
+* ##  ls :
+To show the list of current files and directory
 
-2. pwd(present working directory)
-use: to show current directory
+	### Advance ls options :
+	1. **-a :** Show all (including hidden)
+	2. **-R :** Recursive list
+	3. **-r :** Reverse order
+	4. **-t :** Sort by last modified
+	5. **-S :** Sort by file size
+	6. **-l :** Long listing format
+	7. **-1 :** One file per line
+	8. **-m :** Comma-separated output
+	9. **-Q :** Quoted output
 
-3.mkdir directory_name
-use: To make directory directory_name
-
-4.cd directory_name
-use:to change directory to directory_name
-
-5. cd ..
-use: to go up directory(parent directory)
-
- 
+> **note** : dir is also working in linux terminal to show the files and directory but it doesn't show the permission on files or folders 
 
