@@ -122,3 +122,22 @@
 			2 	write (w)
 			
 			1 	execute (x)
+
+***
+
+# **Process Management**
+
+* ##ps 
+	Show snapshot of processes
+
+* ##top 
+	Show real time processes
+
+* ##kill pid 
+	Kill process with id pid
+
+* ##pkill name
+	Kill process with name name
+
+* ##killall name
+	Kill all processes with names beginning name
