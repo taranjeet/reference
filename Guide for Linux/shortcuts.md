@@ -52,5 +52,47 @@
 * ##CTRL-A A
 	Rename the current instance.
 
-		
+***
 
+#Bash ShortCuts
+
+* ##CTRL-c 
+	Stop current command
+
+* ##CTRL-z 
+	Sleep program
+
+* ##CTRL-a 
+	Go to start of line
+
+* ##CTRL-e 
+	Go to end of line
+
+* ##CTRL-u 
+	Cut from start of line
+
+* ##CTRL-k 
+	Cut to end of line
+
+* ##CTRL-r 
+	Search history
+
+* ##!! 
+	Repeat last command
+
+* ##!abc 
+	Run last command starting with abc
+
+* ##!abc:p 
+	Print last command starting with abc
+
+* ##!$ 
+	Last argument of previous command
+
+* ##ALT-.
+	Last argument of previous command
+
+* ##!* 
+	All arguments of previous command
+* ##^abc^123
+	Run previous command, replacing abc with 123
