@@ -141,3 +141,28 @@
 
 * ##killall name
 	Kill all processes with names beginning name
+
+***
+
+#**Bash Commands**
+
+* ##uname -a 
+	Show system and kernel
+
+* ##head -n1 /etc/issue 
+	Show distribution
+
+* ##mount 
+	Show mounted filesystems
+
+* ##date 
+	Show system date
+
+* ##uptime 
+	Show uptime
+
+* ##whoami 
+	Show your username
+
+* ##man command 
+	Show manual for command
