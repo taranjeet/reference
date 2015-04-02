@@ -56,8 +56,41 @@
 	To delete file1
 
 * ##head file1 :
-	Show first 1 0 lines of file1
+	Show first 10 lines of file1
 
 * ##tail file1 :
-	To show last 1 0 lines of file1
+	To show last 10 lines of file1
 
+***
+
+#**Search Files**
+
+* ##grep pattern files
+	Search for pattern in files
+
+* ##grep -i 
+	Case insensitive search
+
+* ##grep -r 
+	Recursive search
+
+* ##grep -v 
+	Inverted search
+
+* ##grep -o 
+	Show matched part of file only
+
+* ##find /dir/ -name filename*
+	Find files starting with filename in dir
+
+* ##find /dir/ -user name
+	Find files owned by name in dir
+
+* ##find /dir/ -mmin num
+	Find files modifed less than num minutes ago in dir
+
+* ##whereis command
+	Find binary / source / manual for command
+
+* ##locate file 
+	Find file (quick search of system index)
