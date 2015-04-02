@@ -166,3 +166,29 @@
 
 * ##man command 
 	Show manual for command
+
+***
+
+#**Watch a Command**
+
+* ##watch -n 5 'ntpq -p'
+	Issue the 'ntpq -p' command every 5 seconds and display output
+	
+***
+
+#**Command Lists**
+
+* ##cmd1 ; cmd2
+	Run cmd1 then cmd2
+
+* ##cmd1 && cmd2
+	Run cmd2 if cmd1 is successful
+
+* ##cmd1 || cmd2
+	Run cmd2 if cmd1 is not successful
+
+* ##cmd &
+	Run cmd in a subshell
+	
+***
+
