@@ -171,7 +171,7 @@
 
 #**Watch a Command**
 
-	* ##watch -n 5 ntpq -p
+	watch -n 5 ntpq -p
 		Issue the 'ntpq -p' command every 5 seconds and display output
 	
 ***
