@@ -117,5 +117,7 @@
 		Calculate each of the three permission digits by
 		adding the numeric values of the permissions below
 			4 	read (r)
+			
 			2 	write (w)
+			
 			1 	execute (x)
