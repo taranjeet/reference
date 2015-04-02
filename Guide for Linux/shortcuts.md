@@ -94,5 +94,6 @@
 
 * ##!* 
 	All arguments of previous command
+	
 * ##^abc^123
 	Run previous command, replacing abc with 123
