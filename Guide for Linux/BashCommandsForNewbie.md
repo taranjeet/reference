@@ -61,6 +61,9 @@
 * ##tail file1 :
 	To show last 10 lines of file1
 
+* ##tail -f file1
+	Output last lines of file1 as it changes
+
 ***
 
 #**Search Files**
@@ -94,3 +97,25 @@
 
 * ##locate file 
 	Find file (quick search of system index)
+
+***
+
+#**File Permissions**
+
+* ##chmod 775 file
+	Change mode of file to 775
+
+* ##chmod -R 600 folder
+	Recursively chmod folder to 600
+
+* ##chown user:group file
+	Change file owner to user and group to group
+
+	> **File Permission Numbers**
+		The first digit is the owner permission, the second the
+		group and the third for everyone.
+		Calculate each of the three permission digits by
+		adding the numeric values of the permissions below
+		4 	read (r)
+		2 	write (w)
+		1 	execute (x)
