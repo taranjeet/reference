@@ -7,6 +7,7 @@
 
 * save the file with `.sh` extension(e.g. firstscript.sh)
 * open terminal and go to the directory where you have saved the file firstscript.sh
+	
 	1.change permission of firstscript.sh 
 		
 		`>>> sudo chmod +x firstscript.sh`
